@@ -22,7 +22,7 @@ services:
   db:
     image: mariadb:10.5.8
     volumes:
-      - ./volume-db:/var/lib/mysql
+      - ./volumes/db:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: somewordpress
@@ -37,7 +37,7 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ./volume-wp:/var/www/html
+      - ./volumes/wordpress:/var/www/html
     restart: always
     environment:
       WORDPRESS_DB_HOST: db
